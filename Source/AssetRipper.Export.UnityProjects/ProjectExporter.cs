@@ -1,5 +1,6 @@
 ﻿using AssetRipper.Assets;
 using AssetRipper.Assets.Bundles;
+using AssetRipper.Export.UnityProjects.Scripts;
 using AssetRipper.Import.Configuration;
 using AssetRipper.Import.Logging;
 using AssetRipper.SourceGenerated;
@@ -81,6 +82,10 @@ public sealed partial class ProjectExporter
 	{
 		EventExportPreparationStarted?.Invoke();
 		List<IExportCollection> collections = CreateCollections(fileCollection);
+
+		// Remove all except script exporters
+		collections.RemoveAll(exp => exp is not ScriptExportCollectionBase);
+
 		EventExportPreparationFinished?.Invoke();
 
 		EventExportStarted?.Invoke();

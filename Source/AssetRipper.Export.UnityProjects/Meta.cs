@@ -60,7 +60,7 @@ public readonly struct Meta
 
 	private const long UnityEpoch = 0x089f7ff5f7b58000;
 
-	private static long CurrentTick => (DateTime.Now.Ticks - UnityEpoch) / 10000000;
+	private static long CurrentTick => 1745156572;
 
 	public const string FileFormatVersionName = "fileFormatVersion";
 	public const string GuidName = "guid";
